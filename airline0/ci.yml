@@ -1,0 +1,13 @@
+name: Testing #workflow name
+on: push #when the workflow should run
+
+jobs:
+  test_project: #defined the job name
+    runs-on: ubuntu-latest #what kind of machine should it run (virtual machine)
+    steps: #what actions should happen
+    - uses: actions/checkout@v2 #checkout the code
+    - name: Run Django unit tests #description
+    #install django  and run the test
+      run: |
+        pip3 install --user django  
+        python3 manage.py test
